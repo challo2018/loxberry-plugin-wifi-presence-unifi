@@ -105,10 +105,11 @@ textarea {
 				$('#password').val(response.password);
 				$('#sitename').val(response.sitename);
 				$('#version').val(response.version);
+				// Wert setzen und jQuery Mobile zwingen, die Anzeige zu aktualisieren (.trigger('change'))
 				if (response.mqtt_topic_base) {
-					$('#mqtt_topic_base').val(response.mqtt_topic_base);
+					$('#mqtt_topic_base').val(response.mqtt_topic_base).trigger('change');
 				} else {
-					$('#mqtt_topic_base').val('mac'); // Standardwert
+					$('#mqtt_topic_base').val('mac').trigger('change'); 
 				}
 
 				// Gespeicherte MACs in einer globalen Variable ablegen, damit wir sie später beim Neuladen der Liste anhaken können
